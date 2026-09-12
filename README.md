@@ -4,13 +4,11 @@ Windows client installer for the `sang` Valheim server.
 
 ## Install
 
-Open PowerShell and run:
+Download the latest `valheim_serverpack.zip` from Releases, unzip it, then double-click:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\install-client.ps1
-```
+`install-client.bat`
 
-The installer finds your Steam Valheim installation, installs BepInEx, downloads the pinned Thunderstore mod versions, and launches Valheim.
+The installer opens a terminal window, shows the install log, finds your Steam Valheim installation, installs BepInEx, downloads the pinned Thunderstore mod versions, and launches Valheim.
 
 If Valheim is installed somewhere unusual:
 
