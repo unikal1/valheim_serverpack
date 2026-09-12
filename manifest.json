@@ -1,0 +1,89 @@
+{
+  "name": "sang-valheim-serverpack",
+  "valheimVersion": "1.0.12",
+  "server": {
+    "name": "sang",
+    "crossplay": true
+  },
+  "mods": [
+    {
+      "owner": "denikson",
+      "name": "BepInExPack_Valheim",
+      "version": "5.4.2350",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "ValheimModding",
+      "name": "Jotunn",
+      "version": "2.30.0",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "ValheimModding",
+      "name": "YamlDotNet",
+      "version": "16.3.1",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "jg224",
+      "name": "ModCore",
+      "version": "0.5.0",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "jg224",
+      "name": "SharedMap",
+      "version": "0.5.1",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "donkeytuesday",
+      "name": "MultiUserChest_Valheim1Compat",
+      "version": "1.0.0",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "TheLukoMan",
+      "name": "TargetPortal",
+      "version": "1.0.2",
+      "requiredOnClient": true,
+      "note": "Thunderstore marks this package deprecated, but it is the Valheim 1.0-compatible TargetPortal build currently used by the server."
+    },
+    {
+      "owner": "coemt",
+      "name": "LightTweaks",
+      "version": "0.1.6",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "RustyMods",
+      "name": "Seasonality",
+      "version": "3.8.2",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "H4nz0",
+      "name": "Seasonality_Fix",
+      "version": "1.0.0",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "NewDiranalt",
+      "name": "SeasonalityTextures_NDTweaks",
+      "version": "1.0.1",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "yudi7ll",
+      "name": "AutoRemoveDeathPin",
+      "version": "1.1.2",
+      "requiredOnClient": true
+    },
+    {
+      "owner": "cjayride",
+      "name": "AdvancedSigns",
+      "version": "0.5.0",
+      "requiredOnClient": true
+    }
+  ]
+}
