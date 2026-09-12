@@ -8,7 +8,14 @@ Download the latest `valheim_serverpack.zip` from Releases, unzip it, then doubl
 
 `install-client.bat`
 
-The installer opens a terminal window, shows the install log, finds your Steam Valheim installation, installs BepInEx, downloads the pinned Thunderstore mod versions, and launches Valheim.
+The installer opens a terminal window and shows a Korean menu:
+
+- `1. 신규 설치`: install the serverpack, or skip if the same version is already installed.
+- `2. 초기화 후 설치`: back up the existing `sang` serverpack outside the plugin load path, then reinstall.
+- `3. 검사하기`: check BepInEx bootstrap files, installed mod folders, pinned versions, and unsafe backups.
+- `4. 목록 보기`: show the pinned server mod list.
+
+After installation, start Valheim from Steam.
 
 If Valheim is installed somewhere unusual:
 
@@ -28,7 +35,7 @@ The server uses Crossplay / PlayFab.
 
 Use Valheim's `Join Code` flow. Ask the server host for the current private join code and password.
 
-Valheim does not currently provide a stable supported command-line option to add a Join Code server favorite automatically, so the script launches the game and asks players to enter the private code manually.
+Valheim does not currently provide a stable supported command-line option to add a Join Code server favorite automatically, so enter the private code manually in-game.
 
 ## Port Forwarding
 
