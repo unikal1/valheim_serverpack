@@ -125,6 +125,45 @@ function Sync-Directory {
     Copy-Item -Path (Join-Path $Source "*") -Destination $Destination -Recurse -Force
 }
 
+function Set-KeyValueConfig {
+    param(
+        [string]$Path,
+        [hashtable]$Values
+    )
+
+    if (-not (Test-Path $Path)) { return }
+    $content = Get-Content -LiteralPath $Path
+    foreach ($key in $Values.Keys) {
+        $escaped = [regex]::Escape($key)
+        $replacement = "$key = $($Values[$key])"
+        $found = $false
+        $content = $content | ForEach-Object {
+            if ($_ -match "^\s*$escaped\s*=") {
+                $found = $true
+                $replacement
+            } else {
+                $_
+            }
+        }
+        if (-not $found) {
+            $content += $replacement
+        }
+    }
+    Set-Content -LiteralPath $Path -Value $content -Encoding UTF8
+}
+
+function Set-ClientConfig {
+    param([string]$GameBepInEx)
+
+    $modCoreConfig = Join-Path $GameBepInEx "config\jg224.modcore.cfg"
+    if (Test-Path $modCoreConfig) {
+        Set-KeyValueConfig $modCoreConfig @{
+            "HandshakeTimeoutSeconds" = "30"
+        }
+        Write-Host "Configured ModCore handshake timeout: $modCoreConfig"
+    }
+}
+
 function Show-ModList {
     param($Manifest)
     Write-Step "서버 모드 목록"
@@ -356,6 +395,8 @@ foreach ($mod in $manifest.mods | Where-Object { $_.name -ne "BepInExPack_Valhei
         Copy-Item -LiteralPath $child.FullName -Destination $dest -Recurse -Force
     }
 }
+
+Set-ClientConfig $gameBepInEx
 
 ($manifest | ConvertTo-Json -Depth 10) | Set-Content -LiteralPath $stampPath -Encoding UTF8
 
