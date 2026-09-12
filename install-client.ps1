@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$ValheimPath,
-    [string]$ManifestPath = "$PSScriptRoot\manifest.json",
+    [string]$ManifestPath,
     [string]$JoinCode,
     [switch]$SkipLaunch,
     [switch]$Force
@@ -9,6 +9,11 @@ param(
 
 $ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+if (-not $ManifestPath) {
+    $scriptRoot = if ($PSScriptRoot) { $PSScriptRoot } else { Split-Path -Parent $PSCommandPath }
+    $ManifestPath = Join-Path $scriptRoot "manifest.json"
+}
 
 function Write-Step {
     param([string]$Message)
